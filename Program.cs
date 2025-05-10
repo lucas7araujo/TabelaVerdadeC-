@@ -29,6 +29,11 @@ class Program
         return p || q;
     }
 
+    static bool Negação(bool valor)
+    {
+        return !valor;
+    }
+
     static void Main()
     {
         bool p = LerValor("\nDigite um valor para P (V ou F): ");
@@ -36,7 +41,7 @@ class Program
         bool q = LerValor("\nDigte um valor para Q (V ou F): ");
         Console.WriteLine($"O valor de P é: {q}");
 
-        Console.Write("\nO que deseja verificar? \n1 - Conjunção; \n2 - Disjunção\n \nOpção Escolhida -> ");
+        Console.Write("\nO que deseja verificar? \n1 - Conjunção; \n2 - Disjunção\n3 - Negação\n \nOpção Escolhida -> ");
         int opcao = int.Parse(Console.ReadLine());
 
         if (opcao == 1)
@@ -44,8 +49,16 @@ class Program
             Console.WriteLine($"P (AND) Q = {Conjunção(p, q)}");
         }
 
-        else if (opcao == 2){
+        else if (opcao == 2)
+        {
             Console.WriteLine($"P (OR) Q = {Disjunção(p, q)}");
+        }
+
+        else if (opcao == 3)
+        {
+            Console.WriteLine($"~P = {Negação(p)}");
+            Console.WriteLine($"~Q = {Negação(q)}");
+
         }
 
     }
