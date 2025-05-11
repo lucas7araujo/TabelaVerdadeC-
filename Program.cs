@@ -52,7 +52,7 @@ class Program
         bool q = LerValor("\nDigte um valor para Q (V ou F): ");
         Console.WriteLine($"O valor de P é: {q}");
 
-        Console.Write("\nO que deseja verificar? \n1 - Conjunção \n2 - Disjunção\n3 - Negação\n4 - Bicondicional\n5 - Implicação Lógica\n  \nOpção Escolhida -> ");
+        Console.Write("\nO que deseja verificar? \n1 - Conjunção \n2 - Disjunção\n3 - Negação\n4 - Bicondicional\n5 - Implicação Lógica\n6 - Tabela Completa \n  \nOpção Escolhida -> ");
         int opcao = int.Parse(Console.ReadLine());
 
         switch (opcao)
@@ -91,7 +91,8 @@ class Program
                 {
                     foreach (bool y in valores)
                     {
-                        Console.WriteLine($"║ {x,-9}║ {y,-9}║ {Conjunção(x, y),-9}║ {Disjunção(x, y),-9}║ {Negação(x),-9}║ {Negação(y),-9}║ {Implicação(x, y),-9}║ {Bicondicional(x, y),-9}║");
+                        Console.WriteLine($"║ {(x ? "V" : "F"),-9}║ {(y ? "V" : "F"),-9}║ {(Conjunção(x, y) ? "V" : "F"),-9}║ {(Disjunção(x, y) ? "V" : "F"),-9}║ {(Negação(x) ? "V" : "F"),-9}║ {(Negação(y) ? "V" : "F"),-9}║ {(Implicação(x, y) ? "V" : "F"),-9}║ {(Bicondicional(x, y) ? "V" : "F"),-9}║");
+
                     }
                 }
                 Console.WriteLine("╚══════════╩══════════╩══════════╩══════════╩══════════╩══════════╩══════════╩══════════╝");
