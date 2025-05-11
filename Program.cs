@@ -52,7 +52,7 @@ class Program
         bool q = LerValor("\nDigte um valor para Q (V ou F): ");
         Console.WriteLine($"O valor de P é: {q}");
 
-        Console.Write("\nO que deseja verificar? \n1 - Conjunção \n2 - Disjunção\n3 - Negação\n4 - Bicondicional\n \nOpção Escolhida -> ");
+        Console.Write("\nO que deseja verificar? \n1 - Conjunção \n2 - Disjunção\n3 - Negação\n4 - Bicondicional\n5 - Implicação Lógica\n  \nOpção Escolhida -> ");
         int opcao = int.Parse(Console.ReadLine());
 
         switch (opcao)
@@ -72,6 +72,15 @@ class Program
 
             case 4:
                 Console.WriteLine($"P <--> Q = {Bicondicional(p, q)}");
+                break;
+
+            case 5:
+                Console.WriteLine($"P -> Q = {Implicação(p, q)}");
+                break;
+
+            case 6:
+                Console.WriteLine($"Tabela completa: ");
+                
                 break;
 
             default:
