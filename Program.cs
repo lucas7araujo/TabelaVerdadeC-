@@ -40,6 +40,11 @@ class Program
         return p == q;
     }
 
+    static bool Implicação(bool p, bool q)
+    {
+        return !p || q;
+    }
+
     static void Main()
     {
         bool p = LerValor("\nDigite um valor para P (V ou F): ");
@@ -47,30 +52,31 @@ class Program
         bool q = LerValor("\nDigte um valor para Q (V ou F): ");
         Console.WriteLine($"O valor de P é: {q}");
 
-        Console.Write("\nO que deseja verificar? \n1 - Conjunção; \n2 - Disjunção\n3 - Negação\n4 - Bicondicional\n \nOpção Escolhida -> ");
+        Console.Write("\nO que deseja verificar? \n1 - Conjunção \n2 - Disjunção\n3 - Negação\n4 - Bicondicional\n \nOpção Escolhida -> ");
         int opcao = int.Parse(Console.ReadLine());
 
-        if (opcao == 1)
+        switch (opcao)
         {
-            Console.WriteLine($"P (AND) Q = {Conjunção(p, q)}");
-        }
+            case 1:
+                Console.WriteLine($"P (AND) Q = {Conjunção(p, q)}");
+                break;
 
-        else if (opcao == 2)
-        {
-            Console.WriteLine($"P (OR) Q = {Disjunção(p, q)}");
-        }
+            case 2:
+                Console.WriteLine($"P (OR) Q = {Disjunção(p, q)}");
+                break;
 
-        else if (opcao == 3)
-        {
-            Console.WriteLine($"~P = {Negação(p)}");
-            Console.WriteLine($"~Q = {Negação(q)}");
+            case 3:
+                Console.WriteLine($"~P = {Negação(p)}");
+                Console.WriteLine($"~Q = {Negação(q)}");
+                break;
 
-        }
+            case 4:
+                Console.WriteLine($"P <--> Q = {Bicondicional(p, q)}");
+                break;
 
-        else if (opcao == 4)
-        {
-            Console.WriteLine($"P <--> Q = {Bicondicional(p, q)}");
-
+            default:
+                Console.WriteLine("Opção inválida! Escolha um número entre 1 e 4.");
+                break;
         }
 
     }
