@@ -79,8 +79,22 @@ class Program
                 break;
 
             case 6:
-                Console.WriteLine($"Tabela completa: ");
-                
+                Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║                               Tabela Verdade                                          ║");
+                Console.WriteLine("╠══════════╦══════════╦══════════╦══════════╦══════════╦══════════╦══════════╦══════════╣");
+                Console.WriteLine("║    P     ║    Q     ║    AND   ║    OR    ║   ¬P     ║   ¬Q     ║   →      ║  <-->    ║");
+                Console.WriteLine("╠══════════╬══════════╬══════════╬══════════╬══════════╬══════════╬══════════╬══════════╣");
+
+                bool[] valores = { true, false };
+
+                foreach (bool x in valores)
+                {
+                    foreach (bool y in valores)
+                    {
+                        Console.WriteLine($"║ {x,-9}║ {y,-9}║ {Conjunção(x, y),-9}║ {Disjunção(x, y),-9}║ {Negação(x),-9}║ {Negação(y),-9}║ {Implicação(x, y),-9}║ {Bicondicional(x, y),-9}║");
+                    }
+                }
+                Console.WriteLine("╚══════════╩══════════╩══════════╩══════════╩══════════╩══════════╩══════════╩══════════╝");
                 break;
 
             default:
